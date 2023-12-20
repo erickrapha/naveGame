@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Rigidbody2D body;
+    public float velocityMinima;
+    public float velocityMaxima;
+
+    private float velocityY;
+
     void Start()
     {
-        
+        this.velocityY = Random.Range(this.velocityMinima, this.velocityMaxima);
     }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        this.body.velocity = new Vector2(0, this.velocityY);
     }
 }
