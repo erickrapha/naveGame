@@ -16,6 +16,6 @@ public class Enemy : MonoBehaviour
     }
     void Update()
     {
-        this.body.velocity = new Vector2(0, this.velocityY);
+        this.body.velocity = new Vector2(0, -this.velocityY);
     }
 }
