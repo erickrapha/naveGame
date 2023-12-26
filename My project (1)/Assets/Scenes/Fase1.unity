@@ -352,6 +352,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   body: {fileID: 1104912564}
   velocityMove: 5
+  laserPrefab: {fileID: 5792302496360909314, guid: ceb4b2d037458114e9de85c1dfc0b0a5, type: 3}
+  tempoEsperaTiro: 0.5
 --- !u!50 &1104912564
 Rigidbody2D:
   serializedVersion: 4

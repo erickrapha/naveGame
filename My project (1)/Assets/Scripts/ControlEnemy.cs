@@ -21,7 +21,8 @@ public class ControlEnemy : MonoBehaviour
             this.tempoDecorrido = 0;
             Vector2 posicaoMaxima = Camera.main.ViewportToWorldPoint(new Vector2(1, 1));
             Vector2 posicaoMinima = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
-            Vector2 posicaoEnemy = new Vector2(0, posicaoMaxima.y);
+            float posicaoX = Random.Range(posicaoMinima.x, posicaoMaxima.x);
+            Vector2 posicaoEnemy = new Vector2(posicaoX, posicaoMaxima.y);
             //Criar um Enemy novo
             Instantiate(this.inimigoOriginal, posicaoEnemy, Quaternion.identity);
 
