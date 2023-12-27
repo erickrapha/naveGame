@@ -8,12 +8,15 @@ public class Player : MonoBehaviour
     public float velocityMove;
     public Laser laserPrefab;
     public float tempoEsperaTiro;
+    public Transform[] posicaoArma;
 
     private float intervaloTiro;
+    private Transform armaAtual;
     
     void Start()
     {
         this.intervaloTiro = 0;
+        this.armaAtual = this.posicaoArma[0];
     }
     void Update()
     {
@@ -33,6 +36,14 @@ public class Player : MonoBehaviour
     }
     private void Atirar()
     {
-        Instantiate(this.laserPrefab, this.transform.position, Quaternion.identity);
+        Instantiate(this.laserPrefab, this.armaAtual.position, Quaternion.identity);
+        if (this.armaAtual == this.posicaoArma[0])
+        {
+            this.armaAtual = this.posicaoArma[1];
+        }
+        else
+        {
+            this.armaAtual = this.posicaoArma[0];
+        }
     }
 }

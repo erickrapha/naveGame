@@ -11,8 +11,14 @@ public class Laser : MonoBehaviour
     {
         this.body2.velocity = new Vector2(0, this.velocityY);
     }
-    public void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log("Colidiu com" + collision.name);
+        if (collider.CompareTag("Enemy"))
+        {
+            //Destrói o Inimigo
+            Destroy(collider.gameObject);
+            //Destrói o Laser
+            Destroy(this.gameObject);
+        }
     }
 }
