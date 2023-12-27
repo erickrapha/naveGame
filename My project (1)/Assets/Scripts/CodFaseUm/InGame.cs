@@ -9,6 +9,6 @@ public class InGame : MonoBehaviour
 
     void Update()
     {
-        this.textPontuacao.text = ControladorPontuacao.Pontuacao.ToString();
+        this.textPontuacao.text = (ControladorPontuacao.Pontuacao + "x");
     }
 }

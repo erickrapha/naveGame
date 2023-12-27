@@ -8,10 +8,7 @@ public static class ControladorPontuacao
 
     public static int Pontuacao
     {
-        get
-        {
-            return pontuacao;
-        }
+        get { return pontuacao; }
         set
         {
             pontuacao = value;
