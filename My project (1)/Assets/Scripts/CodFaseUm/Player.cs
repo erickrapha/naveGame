@@ -27,7 +27,6 @@ public class Player : MonoBehaviour
             this.intervaloTiro = 0;
             Atirar();
         }
-
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
         float velocityX = (horizontal * this.velocityMove);

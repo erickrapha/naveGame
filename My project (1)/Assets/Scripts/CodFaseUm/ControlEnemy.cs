@@ -8,7 +8,6 @@ public class ControlEnemy : MonoBehaviour
 
     private float tempoDecorrido;
     
-    
     void Start()
     {
         this.tempoDecorrido = 0;
