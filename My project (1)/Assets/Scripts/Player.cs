@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     {
         this.intervaloTiro = 0;
         this.armaAtual = this.posicaoArma[0];
+        ControladorPontuacao.Pontuacao = 0;
     }
     void Update()
     {

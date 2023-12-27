@@ -16,7 +16,8 @@ public class Laser : MonoBehaviour
         if (collider.CompareTag("Enemy"))
         {
             //Destrói o Inimigo
-            Destroy(collider.gameObject);
+            Enemy enemy = collider.GetComponent<Enemy>();
+            enemy.Destruir();
             //Destrói o Laser
             Destroy(this.gameObject);
         }
