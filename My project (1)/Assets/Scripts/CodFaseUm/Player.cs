@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public Laser laserPrefab;
     public float tempoEsperaTiro;
     public Transform[] posicaoArma;
+    public SpriteRenderer SpriteRenderer;
 
     private float intervaloTiro;
     private Transform armaAtual;
@@ -38,6 +39,59 @@ public class Player : MonoBehaviour
         float velocityX = (horizontal * this.velocityMove);
         float velocityY = (vertical * this.velocityMove);
         this.body.velocity = new Vector2(velocityX, velocityY);
+        VerificarLimite();
+    }
+    private void VerificarLimite()
+    {
+        Vector2 posicaoAtual  = this.transform.position;
+        float metadeLargura = Largura/2f;
+        float metadeAltura = Altura/2f;
+        Camera cam = Camera.main;
+        Vector2 limiteInferiorEsquerdo = cam.ViewportToWorldPoint(Vector2.zero); // (0, 0)
+        Vector2 limiteSuperiorDireito = cam.ViewportToWorldPoint(Vector2.one); // (1, 1)
+        float pontoReferenciaEsquerdo = posicaoAtual.x - metadeLargura;
+        float pontoReferenciaDireito = posicaoAtual.x + metadeLargura;
+        if (pontoReferenciaEsquerdo < limiteInferiorEsquerdo.x)
+        {
+            //Saindo pela esquerda
+            this.transform.position = new Vector2(limiteInferiorEsquerdo.x + metadeLargura, posicaoAtual.y);
+        }
+        else if (pontoReferenciaDireito > limiteSuperiorDireito.x)
+        {
+            //Saindo pela direita
+            this.transform.position = new Vector2(limiteSuperiorDireito.x - metadeLargura, posicaoAtual.y);
+        }
+        posicaoAtual = this.transform.position;
+        float pontoReferenciaSuperior = posicaoAtual.y + metadeAltura;
+        float pontoReferenciaInferior = posicaoAtual.y - metadeAltura;
+        if (pontoReferenciaSuperior > limiteSuperiorDireito.y)
+        {
+            //Saindo por cima
+            this.transform.position = new Vector2(posicaoAtual.x, limiteSuperiorDireito.y - metadeAltura);
+        }
+        else if (pontoReferenciaInferior < limiteInferiorEsquerdo.y)
+        {
+            //Saindo por baixo
+            this.transform.position = new Vector2(posicaoAtual.x, limiteInferiorEsquerdo.y + metadeAltura);
+        }
+    }
+    private float Largura
+    {
+        get 
+        { 
+            Bounds bounds = this.SpriteRenderer.bounds;
+            Vector3 tamanho = bounds.size;
+            return tamanho.x;
+        }
+    }
+    private float Altura
+    {
+        get
+        {
+            Bounds bounds = this.SpriteRenderer.bounds;
+            Vector3 tamanho = bounds.size;
+            return tamanho.y;
+        }
     }
     private void OnTriggerEnter2D(Collider2D collider)
     {
