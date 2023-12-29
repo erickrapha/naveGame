@@ -4,10 +4,22 @@ using UnityEngine;
 
 public class BarraVida : MonoBehaviour
 {
-    private GameObject[] barrasVermelhas;
+    public GameObject[] barrasVermelhas;
 
-    public void ExibirVida()
+    public void ExibirVida(int vidas)
     {
-        
+        for (int i = 0; i < barrasVermelhas.Length; i++)
+        {
+            if (i < vidas)
+            {
+                //Ativar barra Vermelha
+                this.barrasVermelhas[i].SetActive(true);
+            }
+            else
+            {
+                //Desativar barra Vermelha
+                this.barrasVermelhas[i].SetActive(false);
+            }
+        }
     }
 }

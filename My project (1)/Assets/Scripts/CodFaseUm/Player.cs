@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     private float intervaloTiro;
     private Transform armaAtual;
     private int vidas;
+    private FimJogo telaFimJogo;
     
     void Start()
     {
@@ -20,6 +21,9 @@ public class Player : MonoBehaviour
         this.intervaloTiro = 0;
         this.armaAtual = this.posicaoArma[0];
         ControladorPontuacao.Pontuacao = 0;
+        GameObject fimJogoGameObject = GameObject.FindGameObjectWithTag("TelaFimJogo");
+        this.telaFimJogo = fimJogoGameObject.GetComponent<FimJogo>();
+        this.telaFimJogo.Esconder();
     }
     void Update()
     {
@@ -50,9 +54,12 @@ public class Player : MonoBehaviour
         set 
         { 
             this.vidas = value; 
-            if (this.vidas < 0)
+            if (this.vidas <= 0)
             {
                 this.vidas = 0;
+                this.gameObject.SetActive(false);
+                //Exibir tela do Fim do Jogo
+                telaFimJogo.Exibir();
             }
         }
     }
