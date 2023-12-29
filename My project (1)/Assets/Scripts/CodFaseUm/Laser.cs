@@ -11,6 +11,17 @@ public class Laser : MonoBehaviour
     {
         this.body2.velocity = new Vector2(0, this.velocityY);
     }
+    private void Update()
+    {
+        Camera cam = Camera.main;
+        Vector3 posicaoNaCamera = cam.WorldToViewportPoint(this.transform.position);
+        //Saiu da tela pela parte superior
+        if (posicaoNaCamera.y > 1)
+        {
+            //Destrói o Laser
+            Destroy(this.gameObject);
+        }
+    }
     public void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.CompareTag("Enemy"))

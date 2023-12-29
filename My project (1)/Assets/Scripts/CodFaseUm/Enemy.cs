@@ -17,6 +17,15 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         this.body.velocity = new Vector2(0, -this.velocityY);
+        Camera camera = Camera.main;
+        Vector3 posicaoNaCamera = camera.WorldToViewportPoint(this.transform.position);
+        if (posicaoNaCamera.y < 0)
+        {
+            //O Enemy saiu da área da Câmera!
+            Player jogador = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+            jogador.Vida--;
+            Destruir(false);
+        }
     }
     public void Destruir(bool derrotado)
     {
