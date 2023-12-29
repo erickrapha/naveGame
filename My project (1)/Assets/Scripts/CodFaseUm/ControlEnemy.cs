@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ControlEnemy : MonoBehaviour
 {
-    public Enemy inimigoOriginal;
+    public Enemy inimigoPequeno;
+    public Enemy inimigoGrande;
 
     private float tempoDecorrido;
     
@@ -22,8 +23,21 @@ public class ControlEnemy : MonoBehaviour
             Vector2 posicaoMinima = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
             float posicaoX = Random.Range(posicaoMinima.x, posicaoMaxima.x);
             Vector2 posicaoEnemy = new Vector2(posicaoX, posicaoMaxima.y);
+
+            Enemy prefabEnemy;
+            float chance = Random.Range(0f, 100f);
+            if (chance <= 10)
+            {
+                //10% de chance de criar o Enemy grande
+                prefabEnemy = this.inimigoGrande;  
+            }
+            else
+            {
+                //90% de chance de criar o Enemy pequeno
+                prefabEnemy = this.inimigoPequeno;
+            }
             //Criar um Enemy novo
-            Instantiate(this.inimigoOriginal, posicaoEnemy, Quaternion.identity);
+            Instantiate(prefabEnemy, posicaoEnemy, Quaternion.identity);
 
         }
     }

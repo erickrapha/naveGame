@@ -45,7 +45,7 @@ public class Player : MonoBehaviour
         {
             Vida--;
             Enemy enemy = collider.GetComponent<Enemy>();
-            enemy.Destruir(false);
+            enemy.ReceberDano();
         }
     }
     public int Vida

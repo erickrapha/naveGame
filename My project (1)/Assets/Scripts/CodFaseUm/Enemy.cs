@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     public Rigidbody2D body;
     public float velocityMinima;
     public float velocityMaxima;
+    public int vidas;
 
     private float velocityY;
 
@@ -27,7 +28,15 @@ public class Enemy : MonoBehaviour
             Destruir(false);
         }
     }
-    public void Destruir(bool derrotado)
+    public void ReceberDano()
+    {
+        this.vidas--;
+        if (this.vidas <= 0)
+        {
+            Destruir(true);
+        }
+    }
+    private void Destruir(bool derrotado)
     {
         if (derrotado)
         {
