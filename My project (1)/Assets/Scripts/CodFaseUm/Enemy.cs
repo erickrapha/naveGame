@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public SpriteRenderer spriteRenderer;
     public Rigidbody2D body;
     public float velocityMinima;
     public float velocityMaxima;
@@ -13,6 +14,7 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
+        Vector2 posicaoAtual = this.transform.position;
         this.velocityY = Random.Range(this.velocityMinima, this.velocityMaxima);
     }
     void Update()
@@ -34,6 +36,15 @@ public class Enemy : MonoBehaviour
         if (this.vidas <= 0)
         {
             Destruir(true);
+        }
+    }
+    private float Largura
+    {
+        get 
+        { 
+            Bounds bounds = this.spriteRenderer.bounds;
+            Vector2 tamanho = bounds.size;
+            return tamanho.x;
         }
     }
     private void Destruir(bool derrotado)
