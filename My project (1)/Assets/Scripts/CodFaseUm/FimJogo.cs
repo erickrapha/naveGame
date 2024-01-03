@@ -7,12 +7,13 @@ using UnityEngine.SceneManagement;
 public class FimJogo : MonoBehaviour
 {
     public Text textPontuacao;
+    public Text textMelhorPontuacao;
 
     public void Exibir()
     {
         this.gameObject.SetActive(true);
         this.textPontuacao.text = (ControladorPontuacao.Pontuacao + "x");
-        Debug.Log("Melhor pontuação" + ControladorPontuacao.MelhorPontuacao);
+        this.textMelhorPontuacao.text = ControladorPontuacao.MelhorPontuacao.ToString();
         //Pausar o jogo
         Time.timeScale = 0;
     }

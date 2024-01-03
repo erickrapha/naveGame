@@ -16,7 +16,6 @@ public static class ControladorPontuacao
             {
                 pontuacao = 0;
             }
-            Debug.Log("Pontuação atualizada para: " + Pontuacao);
             if (pontuacao > MelhorPontuacao)
             {
                 MelhorPontuacao = pontuacao;
