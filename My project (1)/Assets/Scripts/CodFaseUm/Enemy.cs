@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
+        TryGetComponent(out spriteRenderer);
         Vector2 posicaoAtual = this.transform.position;
         float metadeLargura = Largura/2f;
         float pontoReferenciaEsquerdo = posicaoAtual.x - metadeLargura;
