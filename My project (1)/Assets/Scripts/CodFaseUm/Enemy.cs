@@ -15,6 +15,24 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         Vector2 posicaoAtual = this.transform.position;
+        float metadeLargura = Largura/2f;
+        float pontoReferenciaEsquerdo = posicaoAtual.x - metadeLargura;
+        float pontoReferenciaDireito = posicaoAtual.x + metadeLargura;
+        Camera cam = Camera.main;
+        Vector2 limiteInferiorEsquerdo = cam.ViewportToWorldPoint(Vector2.zero); //(0, 0)
+        Vector2 limiteSuperiorDireito = cam.ViewportToWorldPoint(Vector2.one); //(1, 1)
+        if (pontoReferenciaEsquerdo < limiteInferiorEsquerdo.x)
+        {
+            //Enemy saiu pela esquerda
+            float posicaoX = limiteInferiorEsquerdo.x + metadeLargura;
+            this.transform.position = new Vector2(posicaoX, posicaoAtual.y);
+        }
+        else if (pontoReferenciaDireito < limiteSuperiorDireito.x)
+        {
+            //Enemy saiu pela direita
+            float posicaoX = limiteSuperiorDireito.x - metadeLargura;
+            this.transform.position = new Vector2(posicaoX, posicaoAtual.y);
+        }
         this.velocityY = Random.Range(this.velocityMinima, this.velocityMaxima);
     }
     void Update()

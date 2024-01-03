@@ -12,12 +12,12 @@ public class PlanoFundo : MonoBehaviour
     
     void Start()
     {
-        this.renderer = this.renderer.material;
+        this.material = this.renderer.material;
         this.offsetMaterial = this.material.GetTextureOffset("_MainTex");
     }
     void Update()
     {
-        this.offsetMaterial.y -= this.velocity * Time.deltaTime;
+        this.offsetMaterial.y += this.velocity * Time.deltaTime;
         this.material.SetTextureOffset("_MainTex", this.offsetMaterial);
     }
 }
