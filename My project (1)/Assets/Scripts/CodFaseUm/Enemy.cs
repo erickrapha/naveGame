@@ -28,7 +28,7 @@ public class Enemy : MonoBehaviour
             float posicaoX = limiteInferiorEsquerdo.x + metadeLargura;
             this.transform.position = new Vector2(posicaoX, posicaoAtual.y);
         }
-        else if (pontoReferenciaDireito < limiteSuperiorDireito.x)
+        else if (pontoReferenciaDireito > limiteSuperiorDireito.x)
         {
             //Enemy saiu pela direita
             float posicaoX = limiteSuperiorDireito.x - metadeLargura;

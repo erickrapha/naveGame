@@ -32,15 +32,15 @@ public class ControlSound : MonoBehaviour
     }
     public void TocarSomHitEnemy()
     {
-        TocarSom(this.hitEnemy);
+        TocarSom(this.hitEnemy, 1.0f);
     }
     public void TocarSomDieEnemy()
     {
-        TocarSom(this.dieEnemy);
+        TocarSom(this.dieEnemy, 0.25f);
     }
     public void TocarSomLaser()
     {
-        TocarSom(this.laser, 0.1f);
+        TocarSom(this.laser, 0.05f);
     }
     private void TocarSom(AudioClip audioClip, float volume = 0.5f)
     {

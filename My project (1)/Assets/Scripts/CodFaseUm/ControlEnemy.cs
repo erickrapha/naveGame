@@ -25,14 +25,14 @@ public class ControlEnemy : MonoBehaviour
             Vector2 posicaoEnemy = new Vector2(posicaoX, posicaoMaxima.y);
             Enemy prefabEnemy;
             float chance = Random.Range(0f, 100f);
-            if (chance <= 10)
+            if (chance <= 15)
             {
-                //10% de chance de criar o Enemy grande
+                //15% de chance de criar o Enemy grande
                 prefabEnemy = this.inimigoGrande;  
             }
             else
             {
-                //90% de chance de criar o Enemy pequeno
+                //85% de chance de criar o Enemy pequeno
                 prefabEnemy = this.inimigoPequeno;
             }
             //Criar um Enemy novo
