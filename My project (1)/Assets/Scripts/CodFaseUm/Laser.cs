@@ -9,6 +9,8 @@ public class Laser : MonoBehaviour
 
     void Start()
     {
+        ControlSound controlSound = GameObject.FindObjectOfType<ControlSound>();
+        controlSound.TocarSomLaser();
         this.body2.velocity = new Vector2(0, this.velocityY);
     }
     private void Update()
