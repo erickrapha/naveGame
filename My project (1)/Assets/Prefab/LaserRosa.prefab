@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body2: {fileID: 5792302496360909439}
-  velocityY: 2.5
+  velocityY: 2.75
 --- !u!61 &-5440549641320820708
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -16,7 +16,7 @@ public class ControlEnemy : MonoBehaviour
     void Update()
     {
         this.tempoDecorrido += Time.deltaTime;
-        if (this.tempoDecorrido >= 1.0f)
+        if (this.tempoDecorrido >= 2.0f)
         {
             this.tempoDecorrido = 0;
             Vector2 posicaoMaxima = Camera.main.ViewportToWorldPoint(new Vector2(1, 1));
