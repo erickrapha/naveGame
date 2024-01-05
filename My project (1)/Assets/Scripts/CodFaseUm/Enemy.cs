@@ -54,6 +54,8 @@ public class Enemy : MonoBehaviour
         this.vidas--;
         if (this.vidas <= 0)
         {
+            ControlSound controlSound = GameObject.FindObjectOfType<ControlSound>();
+            controlSound.TocarSomHitEnemy();
             Destruir(true);
         }
     }
@@ -73,5 +75,7 @@ public class Enemy : MonoBehaviour
             ControladorPontuacao.Pontuacao++;
         }
         Destroy(this.gameObject);
+        ControlSound controlSound = GameObject.FindObjectOfType<ControlSound>();
+        controlSound.TocarSomDieEnemy();
     }
 }

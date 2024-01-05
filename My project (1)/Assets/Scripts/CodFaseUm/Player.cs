@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     private Transform armaAtual;
     private int vidas;
     private FimJogo telaFimJogo;
+    private ControlSound controlSound;
     
     void Start()
     {
@@ -25,6 +26,7 @@ public class Player : MonoBehaviour
         GameObject fimJogoGameObject = GameObject.FindGameObjectWithTag("TelaFimJogo");
         this.telaFimJogo = fimJogoGameObject.GetComponent<FimJogo>();
         this.telaFimJogo.Esconder();
+        this.controlSound = GameObject.FindObjectOfType<ControlSound>();
     }
     void Update()
     {
@@ -97,6 +99,7 @@ public class Player : MonoBehaviour
     {
         if (collider.CompareTag("Enemy"))
         {
+            controlSound.TocarSomHitNave();
             Vida--;
             Enemy enemy = collider.GetComponent<Enemy>();
             enemy.ReceberDano();
@@ -114,6 +117,7 @@ public class Player : MonoBehaviour
                 this.gameObject.SetActive(false);
                 //Exibir tela do Fim do Jogo
                 telaFimJogo.Exibir();
+                this.controlSound.TocarSomDieNave();
             }
         }
     }

@@ -40,9 +40,9 @@ public class ControlSound : MonoBehaviour
     }
     public void TocarSomLaser()
     {
-        TocarSom(this.laser, 0.33f);
+        TocarSom(this.laser, 0.1f);
     }
-    private void TocarSom(AudioClip audioClip, float volume = 0.75f)
+    private void TocarSom(AudioClip audioClip, float volume = 0.5f)
     {
         this.audioSource.PlayOneShot(audioClip, volume);
     }

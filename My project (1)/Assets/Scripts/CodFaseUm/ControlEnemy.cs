@@ -23,7 +23,6 @@ public class ControlEnemy : MonoBehaviour
             Vector2 posicaoMinima = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
             float posicaoX = Random.Range(posicaoMinima.x, posicaoMaxima.x);
             Vector2 posicaoEnemy = new Vector2(posicaoX, posicaoMaxima.y);
-
             Enemy prefabEnemy;
             float chance = Random.Range(0f, 100f);
             if (chance <= 10)
@@ -38,7 +37,6 @@ public class ControlEnemy : MonoBehaviour
             }
             //Criar um Enemy novo
             Instantiate(prefabEnemy, posicaoEnemy, Quaternion.identity);
-
         }
     }
 }
