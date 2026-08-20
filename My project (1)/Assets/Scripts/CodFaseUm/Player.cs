@@ -40,7 +40,7 @@ public class Player : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
         float velocityX = (horizontal * this.velocityMove);
         float velocityY = (vertical * this.velocityMove);
-        this.body.velocity = new Vector2(velocityX, velocityY);
+        this.body.linearVelocity = new Vector2(velocityX, velocityY);
         VerificarLimite();
     }
     private void VerificarLimite()

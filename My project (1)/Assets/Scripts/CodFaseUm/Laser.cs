@@ -11,7 +11,7 @@ public class Laser : MonoBehaviour
     {
         ControlSound controlSound = GameObject.FindObjectOfType<ControlSound>();
         controlSound.TocarSomLaser();
-        this.body2.velocity = new Vector2(0, this.velocityY);
+        this.body2.linearVelocity = new Vector2(0, this.velocityY);
     }
     private void Update()
     {
@@ -20,7 +20,7 @@ public class Laser : MonoBehaviour
         //Saiu da tela pela parte superior
         if (posicaoNaCamera.y > 1)
         {
-            //Destrói o Laser
+            //Destrï¿½i o Laser
             Destroy(this.gameObject);
         }
     }
@@ -28,10 +28,10 @@ public class Laser : MonoBehaviour
     {
         if (collider.CompareTag("Enemy"))
         {
-            //Destrói o Inimigo
+            //Destrï¿½i o Inimigo
             Enemy enemy = collider.GetComponent<Enemy>();
             enemy.ReceberDano();
-            //Destrói o Laser
+            //Destrï¿½i o Laser
             Destroy(this.gameObject);
         }
     }
